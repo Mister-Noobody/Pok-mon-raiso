@@ -7418,7 +7418,7 @@ body.th455-cristal .board{background:radial-gradient(120% 90% at 50% 0%,#3a3478,
 </section>
 
   </div></main>
-  <footer class="foot"><div class="wrap"><span>Pokémon Résonance · fangame non officiel · v4.74</span><span>Pokémon © Nintendo · Creatures Inc. · GAME FREAK · fangame sans affiliation</span></div></footer>
+  <footer class="foot"><div class="wrap"><span>Pokémon Résonance · fangame non officiel · v4.75</span><span>Pokémon © Nintendo · Creatures Inc. · GAME FREAK · fangame sans affiliation</span></div></footer>
  </div>
 
  <nav class="bnav" aria-label="Navigation">
@@ -7921,7 +7921,7 @@ function reportError(e, where) {
     box.style.cssText =
       'position:fixed;left:12px;right:12px;top:calc(12px + env(safe-area-inset-top));max-height:46vh;overflow:auto;z-index:2147483647;padding:12px 14px;border-radius:14px;background:#2a0e14;border:1px solid #ff6b81;color:#ffe3e8;font:13px/1.45 system-ui,sans-serif;box-shadow:0 10px 30px rgba(0,0,0,.5)';
     box.innerHTML =
-      '<b style="display:block;margin-bottom:4px">Petit souci technique</b><span>Faites une capture de ce message pour le signaler (v4.74).</span><ul style="margin:6px 0 8px;padding-left:18px;word-break:break-word"></ul><button type="button" style="font:inherit;font-weight:700;padding:6px 14px;border-radius:999px;border:0;background:#ff6b81;color:#2a0e14">Fermer</button>';
+      '<b style="display:block;margin-bottom:4px">Petit souci technique</b><span>Faites une capture de ce message pour le signaler (v4.75).</span><ul style="margin:6px 0 8px;padding-left:18px;word-break:break-word"></ul><button type="button" style="font:inherit;font-weight:700;padding:6px 14px;border-radius:999px;border:0;background:#ff6b81;color:#2a0e14">Fermer</button>';
     box.querySelector('button').addEventListener('click', () => box.remove());
     document.body.appendChild(box);
   }
@@ -44139,15 +44139,15 @@ html.a11y-rm #bSvg .tok.pk-wait{opacity:1!important}
   css.textContent = `
 /* ---------- 4. boîtes de dialogue classiques ---------- */
 ${P} .pk-dlg{position:relative!important;background:linear-gradient(180deg,#ffffff,#edf1f7)!important;color:#273142!important;border:0!important;border-radius:12px!important;box-shadow:0 0 0 2.5px #f8fafc,0 0 0 5.5px #3a72c4,0 0 0 7px #0d1f3c,0 16px 30px -14px rgba(0,0,0,.85)!important;text-shadow:none!important;backdrop-filter:none!important}
-${P} .pk-dlg :is(p,em,q,small,span:not(.pav):not(.dlg-who):not(.tb)):not(.pav *):not(.tb *):not(button *):not(.it-cards *){color:#273142!important;text-shadow:none!important}
+${P} .pk-dlg :is(p,em,q,small,span:not(.pav):not(.dlg-who):not(.tb):not(.pk-c):not(.pk-tw)):not(.pav *):not(.tb *):not(button *):not(.it-cards *){color:#273142!important;text-shadow:none!important}
 ${P} .pk-dlg :is(b,strong):not(.pav *):not(button *):not(.it-cards *){color:#cf2f2b!important;text-shadow:none!important}
 ${P} .pk-dlg .dlg-who{position:absolute!important;left:12px;top:-12px;z-index:2;display:inline-block!important;margin:0!important;padding:3px 9px 2px!important;border-radius:6px!important;background:linear-gradient(180deg,#5a93e6,#2c5fae)!important;color:#fff!important;font:800 9.5px/1.25 var(--f-d)!important;letter-spacing:.1em!important;text-transform:uppercase;box-shadow:0 0 0 2px #0d1f3c!important;opacity:1!important}
 ${P} .pk-dlg .dlg-who::before,${P} .pk-dlg .dlg-who::after{display:none!important}
 ${P} .pk-dlg .pk-fl{display:inline-block;position:relative;width:0;height:0;margin-left:7px;vertical-align:middle;border-left:6px solid transparent;border-right:6px solid transparent;border-top:8px solid #e3262f;filter:drop-shadow(0 1px 0 #7a0d12);animation:pkFleche .9s ease-in-out infinite;pointer-events:none}
 ${P} .pk-dlg .pk-fl.abs{position:absolute;right:12px;bottom:10px;margin:0}
 ${P} .pk-dlg.pk-typing .pk-fl{visibility:hidden}
-${P} .pk-typing .pk-c{opacity:0}
-${P} .pk-typing .pk-c.v{opacity:1}
+${P} .pk-typing .pk-c{visibility:hidden}
+${P} .pk-typing .pk-c.v{visibility:visible}
 @keyframes pkFleche{0%,100%{transform:translateY(0)}50%{transform:translateY(3px)}}
 
 /* Prof. Sorbier sur l'Accueil */
@@ -44308,6 +44308,12 @@ html.a11y-rm .pk-dlg .pk-fl,html.a11y-rm .pk-front .pk-clerk,html.a11y-rm .pk-ba
     const tick = now => {
       if (j.fini) return;
       if (!e.isConnected) return finir(j);
+      // au plus ~22 mises à jour par seconde : plusieurs lettres à la fois, moins de recalculs
+      if (now - (j.last || 0) < 45 && j.k) {
+        j.raf = requestAnimationFrame(tick);
+        return;
+      }
+      j.last = now;
       const k2 = Math.min(spans.length, Math.floor((now - j.t0) / j.ms) + 1);
       for (let i = j.k; i < k2; i++) spans[i].classList.add('v');
       j.k = k2;
@@ -44355,13 +44361,15 @@ html.a11y-rm .pk-dlg .pk-fl,html.a11y-rm .pk-front .pk-clerk,html.a11y-rm .pk-ba
           if (!box.classList.contains('pk-dlg')) box.classList.add('pk-dlg');
           const hote = abs ? box : e;
           if (!hote.querySelector(':scope > .pk-fl')) hote.insertAdjacentHTML('beforeend', `<i class="pk-fl${abs ? ' abs' : ''}" aria-hidden="true"></i>`);
-          if (JOBS.has(e) || !visible(e)) return;
+          // texte déjà écrit une fois : on ne lit pas la mise en page (évite un recalcul forcé à chaque changement du DOM)
+          if (JOBS.has(e) || VU.has(cle(e)) || !visible(e)) return;
           ecrire(e, box);
         });
       }
       // cartes : chromatiques capturés
       const sh = (PROFILE && PROFILE.shiny) || [];
-      document.querySelectorAll('#pokedex .fcard').forEach(c => {
+      // seulement quand le Pokédex est affiché (sinon des centaines de cartes relues à chaque action de combat)
+      if (cur === 'pokedex') document.querySelectorAll('#pokedex .fcard').forEach(c => {
         const b = c.querySelector('[data-open]');
         const id = b && b.dataset.open;
         const oui = !!(id && sh.includes(id));
@@ -44472,7 +44480,7 @@ html.a11y-rm .pk-dlg .pk-fl,html.a11y-rm .pk-front .pk-clerk,html.a11y-rm .pk-ba
   planifier();
   window.__monde473 = { scan, ecrire, finir, JOBS, VU, habillerSac, son };
 })();
-/* ==== v4.74 : fluidité (animations sur la carte graphique, sans repeindre en boucle) ==== */
+/* ==== v4.74–v4.75 : fluidité (animations sur la carte graphique, sans repeindre en boucle ni forcer la mise en page) ==== */
 (() => {
   /* Mesuré au téléphone simulé (processeur ÷4) :
      - Accueil : la météo (grêle, pluie, sable) et les saisons déplaçaient un fond
@@ -44526,6 +44534,95 @@ html.a11y-rm .ev454::after,html.a11y-rm .cd455::after,html.a11y-rm .hv450s::befo
 `;
   // en fin de document : ces @keyframes doivent passer après les anciennes
   (document.body || document.head).appendChild(css);
+  /* Combat : la largeur du plateau était relue (mise en page forcée) à chaque rendu,
+     plusieurs fois par action. Elle ne change que si l'écran ou le cadre change :
+     on la garde en mémoire et on la relit seulement dans ces cas-là. */
+  try {
+    let W = 0,
+      cle = '',
+      suivi = null,
+      lu = -1;
+    const ro = window.ResizeObserver
+      ? new ResizeObserver(es => {
+          // seulement si la LARGEUR du cadre change (la hauteur bouge à chaque rendu)
+          const e = es[es.length - 1],
+            l = Math.round((e && e.contentRect && e.contentRect.width) || 0);
+          if (l === lu) return;
+          lu = l;
+          W = 0;
+          calibre434();
+        })
+      : null;
+    const oublier = () => {
+      W = 0;
+    };
+    // en capture : la largeur est oubliée avant que les anciens écouteurs ne recalibrent
+    window.addEventListener('resize', oublier, true);
+    window.addEventListener('orientationchange', oublier, true);
+    if (window.visualViewport) visualViewport.addEventListener('resize', oublier, true);
+    calibre434 = function () {
+      try {
+        const cb = document.getElementById('cbBattle'),
+          bd = document.getElementById('bBoard');
+        const on = !!(MQ434 && MQ434.matches && B && cur === 'combat' && cb && !cb.hidden);
+        document.body.classList.toggle('bt434', on);
+        if (!bd) return;
+        if (!on || !bd.classList.contains('vert')) {
+          bd.style.removeProperty('width');
+          W = 0;
+          return;
+        }
+        const c = bd.closest('.bt') || bd.parentElement;
+        if (ro && suivi !== c) {
+          if (suivi) ro.unobserve(suivi);
+          ro.observe(c);
+          suivi = c;
+        }
+        // (pas de innerWidth ici : sa lecture force elle aussi la mise en page)
+        const k = String(document.body.classList.contains('fs444'));
+        if (!W || k !== cle) {
+          W = Math.max(220, c.clientWidth - 8);
+          cle = k;
+        }
+        if (bd.style.width !== W + 'px') bd.style.width = W + 'px';
+      } catch (e) {}
+    };
+  } catch (e) {}
+  /* Relancer une petite animation (bond d'un jeton, secousse du plateau) passait par
+     une lecture forcée de la mise en page de toute la page. Si l'animation ne joue pas,
+     on ajoute simplement la classe ; si elle joue déjà, on la relance deux images plus tard. */
+  const apres2images = f => requestAnimationFrame(() => requestAnimationFrame(f));
+  try {
+    rejouer429 = function (T, cl, ms) {
+      const g = T && T.g;
+      if (!g) return;
+      clearTimeout(T['t_' + cl]);
+      const lancer = () => {
+        g.classList.add(cl);
+        clearTimeout(T['t_' + cl]);
+        T['t_' + cl] = setTimeout(() => g.classList.remove(cl), ms);
+      };
+      if (!g.classList.contains(cl)) return lancer();
+      g.classList.remove(cl);
+      apres2images(lancer);
+    };
+  } catch (e) {}
+  try {
+    shake448 = function (big) {
+      if (!FX448()) return;
+      const bd = $('#bBoard');
+      if (!bd) return;
+      const deja = bd.classList.contains('shake448') || bd.classList.contains('shakeB448');
+      bd.classList.remove('shake448', 'shakeB448');
+      const lancer = () => {
+        bd.classList.add(big ? 'shakeB448' : 'shake448');
+        clearTimeout(shake448.t);
+        shake448.t = setTimeout(() => bd.classList.remove('shake448', 'shakeB448'), 520);
+      };
+      if (deja) apres2images(lancer);
+      else lancer();
+    };
+  } catch (e) {}
 })();
 /* ==== 99-demarrage.js ==== */
 /* ===================== DÉMARRAGE =====================
