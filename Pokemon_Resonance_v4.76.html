@@ -246,7 +246,7 @@ button.chip:hover{border-color:var(--line3);color:var(--tx)}
 
 
 
-@media (max-width:880px){}
+
 
 /* règles en accordéon */
 .rules{display:grid;gap:8px}
@@ -261,7 +261,7 @@ button.chip:hover{border-color:var(--line3);color:var(--tx)}
 .rule[open] .chev{transform:rotate(180deg);color:var(--gold)}
 .rule-b{display:grid;gap:16px;padding:0 18px 20px 88px}
 @media (max-width:600px){.rule summary{grid-template-columns:42px minmax(0,1fr) 20px;gap:10px;padding:15px 14px}.rule-b{padding:0 14px 18px 66px}}
-.rule.flash{animation:flash 1.2s ease}
+
 @keyframes flash{30%{box-shadow:0 0 0 1px var(--gold),0 0 0 6px var(--gold-s)}}
 .ticks{margin:0;padding:0;list-style:none;display:grid;gap:9px;font-size:14.5px;color:var(--tx2)}
 .ticks li{position:relative;padding-left:18px}
@@ -404,8 +404,8 @@ button.chip:hover{border-color:var(--line3);color:var(--tx)}
 .hx{fill:var(--tile);stroke:var(--tile-l);stroke-width:1;transition:fill .6s ease}
 .hx.river{fill:var(--river)}
 .hx.wet{fill:var(--wet)}
-.hx.zapped{animation:zapf 1.9s ease both;animation-delay:var(--d,0s)}
-.hx.river.zapped{animation-name:zapr}
+
+
 @keyframes zapf{0%{fill:var(--wet)}12%{fill:#8C7A25}100%{fill:var(--wet)}}
 @keyframes zapr{0%{fill:var(--river)}12%{fill:#7D6E26}100%{fill:var(--river)}}
 
@@ -483,7 +483,7 @@ button.chip:hover{border-color:var(--line3);color:var(--tx)}
 .log{list-style:none;margin:0;padding:6px;display:grid}
 .log li{display:grid;grid-template-columns:32px minmax(0,1fr);gap:12px;padding:13px 12px;border-radius:14px;cursor:pointer;transition:background .25s,opacity .25s}
 .log li:hover{background:var(--s2)}
-.log li.fut{opacity:.42}
+
 .log li.cur{background:var(--s3);box-shadow:inset 0 0 0 1px var(--line2)}
 .log .k{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-family:var(--f-m);font-size:11px;border:1px solid var(--line2);color:var(--mut)}
 .log li.cur .k{background:var(--gold);color:#17120A;border-color:var(--gold)}
@@ -1803,8 +1803,8 @@ button.nv{width:100%;border:0;background:none;font:inherit;text-align:left;curso
 .sv-act{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
 .sv-q{font-size:12.5px;color:var(--gold-l);margin-right:4px}
 .sv-io{display:flex;gap:8px;flex-wrap:wrap;align-items:center;padding-top:6px;border-top:1px solid rgba(212,175,106,.14)}
-.sv-imp{position:relative;overflow:hidden;cursor:pointer}
-.sv-imp input{position:absolute;inset:0;opacity:0;cursor:pointer}
+
+
 @media (max-width:560px){.sv-card{padding:22px 16px}.sv-prof{grid-template-columns:1fr}.sv-k{grid-template-columns:repeat(4,1fr)}}
 
 .sv-card{min-width:0}.sv-card>*{min-width:0}
@@ -3179,7 +3179,7 @@ html body .v4h-cta .b-ghost{min-height:46px;border-radius:999px!important;backgr
 .v4-quest{display:flex;align-items:center;gap:12px;padding:12px 14px;text-decoration:none;color:inherit;border-color:rgba(255,215,94,.4)!important}
 .v4q-ic{flex:none}.v4q-ic .emb,.v4q-ic .av{width:44px!important;height:44px!important}.v4q-ic>svg{width:28px;height:28px;color:#ffd75e}
 .v4q-t{display:grid;gap:2px;min-width:0}.v4q-t small{font:800 11px/1.2 var(--f-d);letter-spacing:.12em;text-transform:uppercase;color:#ffd75e}.v4q-t b{font:800 15px/1.2 var(--f-d)}.v4q-t em{font:500 12.5px/1.35 var(--f-b);font-style:normal;color:var(--v4-tx2)}
-.v4q-go{width:20px;height:20px;margin-left:auto;color:#ffd75e;flex:none}.v4q-camp{margin-left:auto;flex:none}
+.v4q-go{width:20px;height:20px;margin-left:auto;color:#ffd75e;flex:none}
 .v4-tiles{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
 .v4-tile{position:relative;display:flex;flex-direction:column;justify-content:flex-end;min-height:168px;padding:12px;border-radius:14px;overflow:hidden;text-decoration:none;color:#fff;border:1px solid var(--v4-ln2);background:#0b2140;box-shadow:0 14px 30px -16px rgba(0,0,0,.9),inset 0 0 0 1px rgba(255,255,255,.05);isolation:isolate;transition:transform .2s var(--ease),border-color .2s}
 .v4-tile:hover{transform:translateY(-3px);border-color:#ffe17b}
@@ -6724,7 +6724,7 @@ html body #bSvg .tok.dj1{--dj:var(--dj1)}html body #bSvg .tok.dj2{--dj:var(--dj2
 .sel-det,.sel-card{grid-template-columns:minmax(0,1fr)!important;min-width:0;max-width:100%}
 .sel-det>*,.sel-card>*,.sel-card .hh-chips,.sel-card .sx-foes{min-width:0;max-width:100%}
 .sel-card .dlgbox,.sel-card .sx-d,.sel-card p{overflow-wrap:anywhere}
-#cbPrep [class*="doc"] .hh-chips,#cbPrep .doc430-row,#cbPrep [data-doc430]{flex-wrap:wrap}
+#cbPrep [class*="doc"] .hh-chips,#cbPrep [data-doc430]{flex-wrap:wrap}
 #cbPrep .pt,#cbPrep .sel-body,#cbPrep .sel-det{grid-template-columns:minmax(0,1fr)!important;min-width:0;max-width:100%}
 #cbPrep .pt>*,#cbPrep .sel-body>*{min-width:0;max-width:100%}
 #cbPrep .pt-list,#cbPrep .ptc{min-width:0}
@@ -7418,7 +7418,7 @@ body.th455-cristal .board{background:radial-gradient(120% 90% at 50% 0%,#3a3478,
 </section>
 
   </div></main>
-  <footer class="foot"><div class="wrap"><span>Pokémon Résonance · fangame non officiel · v4.75</span><span>Pokémon © Nintendo · Creatures Inc. · GAME FREAK · fangame sans affiliation</span></div></footer>
+  <footer class="foot"><div class="wrap"><span>Pokémon Résonance · fangame non officiel · v4.76</span><span>Pokémon © Nintendo · Creatures Inc. · GAME FREAK · fangame sans affiliation</span></div></footer>
  </div>
 
  <nav class="bnav" aria-label="Navigation">
@@ -7921,7 +7921,7 @@ function reportError(e, where) {
     box.style.cssText =
       'position:fixed;left:12px;right:12px;top:calc(12px + env(safe-area-inset-top));max-height:46vh;overflow:auto;z-index:2147483647;padding:12px 14px;border-radius:14px;background:#2a0e14;border:1px solid #ff6b81;color:#ffe3e8;font:13px/1.45 system-ui,sans-serif;box-shadow:0 10px 30px rgba(0,0,0,.5)';
     box.innerHTML =
-      '<b style="display:block;margin-bottom:4px">Petit souci technique</b><span>Faites une capture de ce message pour le signaler (v4.75).</span><ul style="margin:6px 0 8px;padding-left:18px;word-break:break-word"></ul><button type="button" style="font:inherit;font-weight:700;padding:6px 14px;border-radius:999px;border:0;background:#ff6b81;color:#2a0e14">Fermer</button>';
+      '<b style="display:block;margin-bottom:4px">Petit souci technique</b><span>Faites une capture de ce message pour le signaler (v4.76).</span><ul style="margin:6px 0 8px;padding-left:18px;word-break:break-word"></ul><button type="button" style="font:inherit;font-weight:700;padding:6px 14px;border-radius:999px;border:0;background:#ff6b81;color:#2a0e14">Fermer</button>';
     box.querySelector('button').addEventListener('click', () => box.remove());
     document.body.appendChild(box);
   }
@@ -21971,7 +21971,11 @@ function fixTree(root) {
   new MutationObserver(ms => {
     for (const m of ms) {
       if (m.type === 'characterData') q.add(m.target);
-      else m.addedNodes.forEach(x => q.add(x));
+      // v4.76 : les lettres du texte qui s’écrit (déjà corrigé) ne sont pas repassées une à une
+      else m.addedNodes.forEach(x => {
+        if (x.nodeType === 1 && x.classList && x.classList.contains('pk-tw')) return;
+        q.add(x);
+      });
     }
     if (!raf)
       raf = requestAnimationFrame(() => {
@@ -43366,8 +43370,8 @@ html.a11y-rm .amb471{display:none}
 
 /* ---------- fond : grande Poké Ball au trait ---------- */
 #pk-fond{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;contain:strict}
-#pk-fond i{position:absolute;width:118vmin;height:118vmin;right:-46vmin;bottom:-30vmin;background:${trait('8fd3ff', 0.07)} center/contain no-repeat;animation:pkTourne 160s linear infinite;will-change:transform}
-#pk-fond i+i{width:64vmin;height:64vmin;right:auto;left:-30vmin;bottom:auto;top:14vh;background-image:${trait('ffd35a', 0.06)};animation-duration:110s;animation-direction:reverse}
+#pk-fond i{position:absolute;width:118vmin;height:118vmin;right:-46vmin;bottom:-30vmin;background:${trait('8fd3ff', 0.07)} center/contain no-repeat;transform:rotate(-12deg)}
+#pk-fond i+i{width:64vmin;height:64vmin;right:auto;left:-30vmin;bottom:auto;top:14vh;background-image:${trait('ffd35a', 0.06)};transform:rotate(18deg)}
 
 /* ---------- barre du haut : tête de Pokédex ---------- */
 ${P} header.topbar{background:linear-gradient(180deg,rgba(11,27,50,.98),rgba(6,16,31,.95))!important}
@@ -43392,7 +43396,7 @@ ${P} nav.bnav .bn[aria-current="page"] .ic::after{content:"";position:absolute;i
 
 /* ---------- en-tête de page : fiche de Pokédex ---------- */
 ${P} .ph{overflow-x:clip}
-${P} .ph::before{content:"";position:absolute;right:4px;top:-6px;width:128px;height:128px;pointer-events:none;background:${trait('ffffff', 0.1)} center/contain no-repeat;animation:pkTourne 70s linear infinite;z-index:0}
+${P} .ph::before{content:"";position:absolute;right:4px;top:-6px;width:128px;height:128px;pointer-events:none;background:${trait('ffffff', 0.1)} center/contain no-repeat;transform:rotate(-15deg);z-index:0}
 ${P} .ph>*{position:relative;z-index:1}
 ${P} .kick::before{content:""!important;display:inline-block!important;width:7px!important;height:7px!important;min-width:7px;border-radius:50%!important;border:0!important;transform:none!important;background:radial-gradient(circle at 35% 32%,#ffc2c5,#ff3b44 55%,#9c0f17)!important;box-shadow:0 0 8px rgba(255,60,70,.95)!important;animation:pkLed 2.4s ease-in-out infinite;margin-right:7px;vertical-align:1px;flex:none}
 
@@ -44623,6 +44627,48 @@ html.a11y-rm .ev454::after,html.a11y-rm .cd455::after,html.a11y-rm .hv450s::befo
       else lancer();
     };
   } catch (e) {}
+  /* v4.76 : tant que l'écran de lancement (opaque) couvre le jeu, les animations du jeu
+     en dessous sont en pause : rien à dessiner qu'on ne voit pas. Elles repartent au toucher. */
+  try {
+    const L = document.getElementById('resonance-launch');
+    if (L && !document.documentElement.classList.contains('rl-seen')) {
+      let pausees = [];
+      const geler = () => {
+        pausees = document.getAnimations().filter(a => {
+          const t = a.effect && a.effect.target;
+          return a.playState === 'running' && t && !L.contains(t);
+        });
+        pausees.forEach(a => a.pause());
+      };
+      const relancer = () => {
+        pausees.forEach(a => {
+          try {
+            a.play();
+          } catch (e) {}
+        });
+        pausees = [];
+      };
+      // après le premier rendu (les animations du jeu existent alors)
+      requestAnimationFrame(() => requestAnimationFrame(() => document.getElementById('resonance-launch') && geler()));
+      document.addEventListener(
+        'click',
+        e => {
+          if (e.target && e.target.closest && e.target.closest('#resonance-enter')) relancer();
+        },
+        true
+      );
+      new MutationObserver((m, ob) => {
+        const l = document.getElementById('resonance-launch');
+        if (!l || l.classList.contains('is-leaving')) {
+          ob.disconnect();
+          relancer();
+        }
+      }).observe(document.body, { childList: true, subtree: false });
+      L.addEventListener('keydown', e => {
+        if (e.key === 'Escape') relancer();
+      });
+    }
+  } catch (e) {}
 })();
 /* ==== 99-demarrage.js ==== */
 /* ===================== DÉMARRAGE =====================
@@ -44655,7 +44701,11 @@ bootStep('rival et Tour', () => {
 });
 bootStep('défi de la semaine', hebdoBuild429); // v4.29
 bootStep('défis tactiques', defis431Boot); // énigme, expédition et arène en cours (v4.31)
-bootStep('écran titre', () => showSplash());
+// v4.76 : l'ancien écran titre n'est plus créé sous l'écran de lancement (il restait caché dessous,
+// animé, puis refermé aussitôt) ; il ne sert plus que si l'écran de lancement est absent.
+bootStep('écran titre', () => {
+  if (!document.getElementById('resonance-launch')) showSplash();
+});
 // filet de sécurité : si l’écran de lancement n’a pas pu s’installer, le jeu s’affiche quand même
 bootStep('guide', () => {
   // premier lancement : le guide s’ouvre sur « Débuter »
@@ -44672,9 +44722,7 @@ bootStep('guide', () => {
   setGuide(GTAB);
 });
 bootStep('filtres', renderFilters);
-bootStep('équipe', renderSquad);
-bootStep('Pokédex', renderGrid);
-bootStep('analyse', renderTeam);
+bootStep('équipe', renderSquad); // dessine aussi le Pokédex et l’analyse (v4.76 : plus de second rendu identique)
 bootStep('Ligue', renderLigue);
 bootStep('prochain combat', () => {
   if (!B) {
@@ -44698,16 +44746,14 @@ bootStep('onglet', () => {
   }
   show(TABS.includes(t) ? t : 'accueil', false);
 });
-bootStep('accueil', () => {
-  if (cur === 'accueil') renderHome();
-});
+// v4.76 : l’accueil est déjà dessiné par show() juste au-dessus (plus de second rendu identique)
 bootStep('typographie', () => fixTree(document.body));
 bootStep('intro', () => {
-  // comme en v4.2 : la Professeure arrive quand l’ancien écran titre se referme
-  const sp = document.getElementById('splash');
-  if (sp)
+  // la Professeure arrive quand l’écran de lancement (ou l’ancien écran titre) se referme
+  const sel = '#resonance-launch,#splash';
+  if (document.querySelector(sel))
     new MutationObserver((m, ob) => {
-      if (!document.getElementById('splash')) {
+      if (!document.querySelector(sel)) {
         ob.disconnect();
         showIntro();
       }

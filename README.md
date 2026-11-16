@@ -3,7 +3,15 @@
 Fangame français en un seul fichier HTML : combats tactiques en hexagones, jouable sur téléphone.
 
 ## Jouer
-Ouvrir `Pokemon_Resonance_v4.75.html` dans un navigateur. Le dossier `audio/` doit rester à côté du fichier pour les musiques.
+Ouvrir `Pokemon_Resonance_v4.76.html` dans un navigateur. Le dossier `audio/` doit rester à côté du fichier pour les musiques.
+
+## Nouveautés v4.76 : nettoyage des surcouches
+- L'ancien écran titre n'est plus créé (puis refermé aussitôt) sous l'écran de lancement.
+- Pendant l'écran de lancement, les animations du jeu caché dessous sont en pause.
+- Démarrage : le Pokédex, l'analyse d'équipe et l'accueil ne sont plus dessinés deux fois.
+- Poké Balls en filigrane immobiles (elles tournaient en continu, à peine visibles).
+- 7 règles CSS qui ne pouvaient jamais s'appliquer retirées.
+- Rendu vérifié identique, élément par élément, sur 9 écrans.
 
 ## Nouveautés v4.75 : dialogues fluides
 - Texte lettre par lettre plus léger : les lettres cachées ne créent plus chacune un calque, et l'écran se met à jour environ 22 fois par seconde au lieu de 60.
@@ -32,7 +40,7 @@ Ces effets se règlent dans Paramètres, rubrique « Habillage Pokémon ».
 
 ## Contribuer
 1. Forkez le dépôt.
-2. Modifiez `Pokemon_Resonance_v4.75.html` dans votre fork.
+2. Modifiez `Pokemon_Resonance_v4.76.html` dans votre fork.
 3. Ouvrez une pull request avec une description claire de vos changements.
 
 Merci de ne pas publier de code secret ni de clé dans les contributions.
